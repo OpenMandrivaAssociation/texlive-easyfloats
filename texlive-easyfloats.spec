@@ -3,7 +3,7 @@ Version:	57204
 Release:	2
 Summary:	An easier interface to insert figures, tables and other objects in LaTeX
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/easyfloats
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/easyfloats
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.doc.r%{version}.tar.xz
