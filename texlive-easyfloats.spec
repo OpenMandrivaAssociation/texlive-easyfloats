@@ -1,6 +1,6 @@
 Name:		texlive-easyfloats
-Version:	57204
-Release:	2
+Version:	72699
+Release:	1
 Summary:	An easier interface to insert figures, tables and other objects in LaTeX
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/easyfloats
