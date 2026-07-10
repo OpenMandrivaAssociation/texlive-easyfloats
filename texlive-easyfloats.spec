@@ -1,44 +1,32 @@
-Name:		texlive-easyfloats
-Version:	72699
-Release:	1
+%global tl_name easyfloats
+%global tl_revision 72699
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.1.0
+Release:	%{tl_revision}.1
 Summary:	An easier interface to insert figures, tables and other objects in LaTeX
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/easyfloats
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	make
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Requires:	texlive(caption)
+Requires:	texlive(environ)
+Requires:	texlive(etoolbox)
+Requires:	texlive(float)
+Requires:	texlive(pgf)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-In standard LaTeX inserting objects like figures or tables
-requires too much knowledge for beginners and too much typing
-effort and hardcoding for people like me. This package aims to
-make insertion of figures and tables easier for both beginners
-and experts. Despite the term floats in it's name it also
-allows to disable floating of such objects.
+In standard LaTeX inserting objects like figures or tables requires too
+much knowledge for beginners and too much typing effort and hardcoding
+for people like me. This package aims to make insertion of figures and
+tables easier for both beginners and experts. Despite the term "floats"
+in its name, it also allows to disable floating of such objects.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/easyfloats
-%{_texmfdistdir}/tex/latex/easyfloats
-%doc %{_texmfdistdir}/doc/latex/easyfloats
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
