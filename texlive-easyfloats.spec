@@ -14,8 +14,6 @@ Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.doc.r
 Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/easyfloats.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-BuildRequires:	texlive-tlpkg
-%texlive_base_requires
 Requires:	texlive(caption)
 Requires:	texlive(environ)
 Requires:	texlive(etoolbox)
